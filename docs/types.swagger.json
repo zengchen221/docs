@@ -1,0 +1,531 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "types.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/robot/getAllRobot": {
+      "get": {
+        "operationId": "RobotAPI_GetAllRobot",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoRobotInfos"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/getConfig": {
+      "get": {
+        "operationId": "RobotAPI_GetConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoExchange"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robotName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/getTotalValueDiff": {
+      "get": {
+        "operationId": "RobotAPI_GetTotalValueDiff",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoTotalValueDiffResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robot",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/init": {
+      "post": {
+        "operationId": "RobotAPI_Init",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoExchange"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoPlatform"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/restartRobot": {
+      "post": {
+        "operationId": "RobotAPI_RestartRobot",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoRobotName"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/startRobot": {
+      "post": {
+        "operationId": "RobotAPI_StartRobot",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoRobotName"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/stopRobot": {
+      "post": {
+        "operationId": "RobotAPI_StopRobot",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoRobotName"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/updateConfig": {
+      "post": {
+        "operationId": "RobotAPI_UpdateConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoExchange"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/updateLog": {
+      "post": {
+        "operationId": "RobotAPI_UpdateLog",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoString"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protoAccountValue": {
+      "type": "object",
+      "properties": {
+        "Time": {
+          "type": "string"
+        },
+        "DexPosition": {
+          "type": "number",
+          "format": "float"
+        },
+        "AccountBalance": {
+          "type": "number",
+          "format": "float"
+        },
+        "TotalDexValue": {
+          "type": "number",
+          "format": "float"
+        },
+        "TotalCexValue": {
+          "type": "number",
+          "format": "float"
+        },
+        "TotalValue": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoBoolean": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "protoExchange": {
+      "type": "object",
+      "properties": {
+        "RobotName": {
+          "type": "string"
+        },
+        "ExchangeConfig": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoExchangeConfig"
+          }
+        },
+        "PreflightCheck": {
+          "$ref": "#/definitions/protoPreflightCheck"
+        }
+      }
+    },
+    "protoExchangeConfig": {
+      "type": "object",
+      "properties": {
+        "Pair": {
+          "type": "string"
+        },
+        "ENABLED": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "ASSET_CAP": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "SAKEPERP_LEVERAGE": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "SAKEPERP_MIN_TRADE_NOTIONAL": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "SAKEPERP_SHORT_ENTRY_TRIGGER": {
+          "type": "number",
+          "format": "float"
+        },
+        "SAKEPERP_LONG_ENTRY_TRIGGER": {
+          "type": "number",
+          "format": "float"
+        },
+        "ADJUST_MARGIN_RATIO_THRESHOLD": {
+          "type": "number",
+          "format": "float"
+        },
+        "MAX_SLIPPAGE_RATIO": {
+          "type": "number",
+          "format": "float"
+        },
+        "CEX_MARKET_ID": {
+          "type": "string"
+        },
+        "CEX_MIN_TRADE_SIZE": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoPlatform": {
+      "type": "object",
+      "properties": {
+        "platform": {
+          "type": "string"
+        }
+      }
+    },
+    "protoPreflightCheck": {
+      "type": "object",
+      "properties": {
+        "BLOCK_TIMESTAMP_FRESHNESS_THRESHOLD": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "GAS_BALANCE_THRESHOLD": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "USD_BALANCE_THRESHOLD": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "CEX_USD_BALANCE_THRESHOLD": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "CEX_MARGIN_RATIO_THRESHOLD": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoRobotInfo": {
+      "type": "object",
+      "properties": {
+        "RobotName": {
+          "type": "string"
+        },
+        "State": {
+          "type": "string"
+        },
+        "CreateTime": {
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        }
+      }
+    },
+    "protoRobotInfos": {
+      "type": "object",
+      "properties": {
+        "robots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoRobotInfo"
+          }
+        }
+      }
+    },
+    "protoRobotName": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        }
+      }
+    },
+    "protoString": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "protoTotalValueDiffResponse": {
+      "type": "object",
+      "properties": {
+        "Robot": {
+          "type": "string"
+        },
+        "StartValue": {
+          "$ref": "#/definitions/protoAccountValue"
+        },
+        "EndValue": {
+          "$ref": "#/definitions/protoAccountValue"
+        },
+        "ValueDiff": {
+          "$ref": "#/definitions/protoAccountValue"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

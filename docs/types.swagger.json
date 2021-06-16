@@ -11,6 +11,540 @@
     "application/json"
   ],
   "paths": {
+    "/perpFiFollowV1/getAccountValue": {
+      "get": {
+        "operationId": "PerpFiFollowV1RobotAPI_GetAccountValue",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoPerpFiFollowV1AccountValues"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robot",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "PerpFiFollowV1RobotAPI"
+        ]
+      }
+    },
+    "/perpFiFollowV1/getCexPnl": {
+      "get": {
+        "operationId": "PerpFiFollowV1RobotAPI_GetCexPnl",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoPerpFiFollowV1CexPnls"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robot",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "PerpFiFollowV1RobotAPI"
+        ]
+      }
+    },
+    "/perpFiFollowV1/getPosition": {
+      "get": {
+        "operationId": "PerpFiFollowV1RobotAPI_GetPosition",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoPerpFiFollowV1Positions"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robot",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "PerpFiFollowV1RobotAPI"
+        ]
+      }
+    },
+    "/perpFiFollowV2/getAccountValue": {
+      "get": {
+        "operationId": "PerpFiFollowV2RobotAPI_GetAccountValue",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoPerpFiFollowV2AccountValues"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robot",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "PerpFiFollowV2RobotAPI"
+        ]
+      }
+    },
+    "/perpFiFollowV2/getCexPnl": {
+      "get": {
+        "operationId": "PerpFiFollowV2RobotAPI_GetCexPnl",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoPerpFiFollowV2CexPnls"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robot",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "PerpFiFollowV2RobotAPI"
+        ]
+      }
+    },
+    "/perpFiFollowV2/getCexPosition": {
+      "get": {
+        "operationId": "PerpFiFollowV2RobotAPI_GetCexPosition",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoPerpFiFollowV2CexPositions"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robot",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "PerpFiFollowV2RobotAPI"
+        ]
+      }
+    },
+    "/perpFiFollowV2/getDexPosition": {
+      "get": {
+        "operationId": "PerpFiFollowV2RobotAPI_GetDexPosition",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoPerpFiFollowV2DexPositions"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robot",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "PerpFiFollowV2RobotAPI"
+        ]
+      }
+    },
+    "/robot/debug": {
+      "get": {
+        "operationId": "RobotAPI_Debug",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoString"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/getAccountValues": {
+      "get": {
+        "operationId": "RobotAPI_GetAccountValues",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoAccountValueResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robot",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/getAccountValuesDiff": {
+      "get": {
+        "operationId": "RobotAPI_GetAccountValuesDiff",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoAccountValueDiffResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robot",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
     "/robot/getAllRobot": {
       "get": {
         "operationId": "RobotAPI_GetAllRobot",
@@ -19,6 +553,28 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protoRobotInfos"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/getAllSakePerpRobots": {
+      "get": {
+        "operationId": "RobotAPI_GetAllSakePerpRobots",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoRobots"
             }
           },
           "default": {
@@ -63,14 +619,14 @@
         ]
       }
     },
-    "/robot/getTotalValueDiff": {
+    "/robot/getPairValues": {
       "get": {
-        "operationId": "RobotAPI_GetTotalValueDiff",
+        "operationId": "RobotAPI_GetPairValues",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoTotalValueDiffResponse"
+              "$ref": "#/definitions/protoPairValues"
             }
           },
           "default": {
@@ -88,6 +644,12 @@
             "type": "string"
           },
           {
+            "name": "pair",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "startTime",
             "in": "query",
             "required": false,
@@ -98,6 +660,20 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "tags": [
@@ -132,6 +708,28 @@
             }
           }
         ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/latestData": {
+      "get": {
+        "operationId": "RobotAPI_LatestData",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoString"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
         "tags": [
           "RobotAPI"
         ]
@@ -288,7 +886,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoString"
+              "$ref": "#/definitions/protoUpdateLogRequest"
             }
           }
         ],
@@ -302,28 +900,56 @@
     "protoAccountValue": {
       "type": "object",
       "properties": {
-        "Time": {
+        "time": {
           "type": "string"
         },
-        "DexPosition": {
+        "dexPosition": {
           "type": "number",
           "format": "float"
         },
-        "AccountBalance": {
+        "accountBalance": {
           "type": "number",
           "format": "float"
         },
-        "TotalDexValue": {
+        "totalDexValue": {
           "type": "number",
           "format": "float"
         },
-        "TotalCexValue": {
+        "totalCexValue": {
           "type": "number",
           "format": "float"
         },
-        "TotalValue": {
+        "totalValue": {
           "type": "number",
           "format": "float"
+        }
+      }
+    },
+    "protoAccountValueDiffResponse": {
+      "type": "object",
+      "properties": {
+        "Robot": {
+          "type": "string"
+        },
+        "StartValue": {
+          "$ref": "#/definitions/protoAccountValue"
+        },
+        "EndValue": {
+          "$ref": "#/definitions/protoAccountValue"
+        },
+        "ValueDiff": {
+          "$ref": "#/definitions/protoAccountValue"
+        }
+      }
+    },
+    "protoAccountValueResponse": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoAccountValue"
+          }
         }
       }
     },
@@ -400,6 +1026,265 @@
         }
       }
     },
+    "protoPairValue": {
+      "type": "object",
+      "properties": {
+        "robot": {
+          "type": "string"
+        },
+        "pair": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        },
+        "cexPrice": {
+          "type": "number",
+          "format": "float"
+        },
+        "cexPnl": {
+          "type": "number",
+          "format": "float"
+        },
+        "cexSize": {
+          "type": "number",
+          "format": "float"
+        },
+        "dexPrice": {
+          "type": "number",
+          "format": "float"
+        },
+        "dexPnl": {
+          "type": "number",
+          "format": "float"
+        },
+        "dexSize": {
+          "type": "number",
+          "format": "float"
+        },
+        "dexMargin": {
+          "type": "number",
+          "format": "float"
+        },
+        "priceDiff": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoPairValues": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoPairValue"
+          }
+        }
+      }
+    },
+    "protoPerpFiFollowV1AccountValue": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "recordTime": {
+          "type": "string"
+        },
+        "totalValue": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoPerpFiFollowV1AccountValues": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoPerpFiFollowV1AccountValue"
+          }
+        }
+      }
+    },
+    "protoPerpFiFollowV1CexPnl": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "recordTime": {
+          "type": "string"
+        },
+        "pnl": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoPerpFiFollowV1CexPnls": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoPerpFiFollowV1CexPnl"
+          }
+        }
+      }
+    },
+    "protoPerpFiFollowV1Position": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "recordTime": {
+          "type": "string"
+        },
+        "perpfiSize": {
+          "type": "number",
+          "format": "float"
+        },
+        "cexSize": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoPerpFiFollowV1Positions": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoPerpFiFollowV1Position"
+          }
+        }
+      }
+    },
+    "protoPerpFiFollowV2AccountValue": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "recordTime": {
+          "type": "string"
+        },
+        "totalValue": {
+          "type": "number",
+          "format": "float"
+        },
+        "totalCexValue": {
+          "type": "number",
+          "format": "float"
+        },
+        "totalDexValue": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoPerpFiFollowV2AccountValues": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoPerpFiFollowV2AccountValue"
+          }
+        }
+      }
+    },
+    "protoPerpFiFollowV2CexPnl": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "recordTime": {
+          "type": "string"
+        },
+        "pnl": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoPerpFiFollowV2CexPnls": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoPerpFiFollowV2CexPnl"
+          }
+        }
+      }
+    },
+    "protoPerpFiFollowV2CexPosition": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "recordTime": {
+          "type": "string"
+        },
+        "perpfiSize": {
+          "type": "number",
+          "format": "float"
+        },
+        "cexSize": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoPerpFiFollowV2CexPositions": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoPerpFiFollowV2CexPosition"
+          }
+        }
+      }
+    },
+    "protoPerpFiFollowV2DexPosition": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "recordTime": {
+          "type": "string"
+        },
+        "dexSize": {
+          "type": "number",
+          "format": "float"
+        },
+        "dexPnl": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoPerpFiFollowV2DexPositions": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoPerpFiFollowV2DexPosition"
+          }
+        }
+      }
+    },
     "protoPlatform": {
       "type": "object",
       "properties": {
@@ -469,6 +1354,17 @@
         }
       }
     },
+    "protoRobots": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "protoString": {
       "type": "object",
       "properties": {
@@ -477,20 +1373,17 @@
         }
       }
     },
-    "protoTotalValueDiffResponse": {
+    "protoUpdateLogRequest": {
       "type": "object",
       "properties": {
-        "Robot": {
+        "robotType": {
           "type": "string"
         },
-        "StartValue": {
-          "$ref": "#/definitions/protoAccountValue"
+        "fileName": {
+          "type": "string"
         },
-        "EndValue": {
-          "$ref": "#/definitions/protoAccountValue"
-        },
-        "ValueDiff": {
-          "$ref": "#/definitions/protoAccountValue"
+        "latestTime": {
+          "type": "string"
         }
       }
     },

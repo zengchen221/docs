@@ -894,6 +894,118 @@
           "RobotAPI"
         ]
       }
+    },
+    "/stopLoseAndProfitOnPerpFi/getAccountValue": {
+      "get": {
+        "operationId": "StopLoseAndProfitOnPerpFiRobotAPI_GetAccountValue",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoStopLoseAndProfitOnPerpFiAccountValues"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robot",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "StopLoseAndProfitOnPerpFiRobotAPI"
+        ]
+      }
+    },
+    "/stopLoseAndProfitOnPerpFi/getPositionProfit": {
+      "get": {
+        "operationId": "StopLoseAndProfitOnPerpFiRobotAPI_GetPositionProfit",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoStopLoseAndProfitOnPerpFiPositionProfits"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robot",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "StopLoseAndProfitOnPerpFiRobotAPI"
+        ]
+      }
     }
   },
   "definitions": {
@@ -1361,6 +1473,77 @@
           "type": "array",
           "items": {
             "type": "string"
+          }
+        }
+      }
+    },
+    "protoStopLoseAndProfitOnPerpFiAccountValue": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "recordTime": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number",
+          "format": "float"
+        },
+        "pnl": {
+          "type": "number",
+          "format": "float"
+        },
+        "totalValue": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoStopLoseAndProfitOnPerpFiAccountValues": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoStopLoseAndProfitOnPerpFiAccountValue"
+          }
+        }
+      }
+    },
+    "protoStopLoseAndProfitOnPerpFiPositionProfit": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "recordTime": {
+          "type": "string"
+        },
+        "operate": {
+          "type": "string"
+        },
+        "profitRation": {
+          "type": "number",
+          "format": "float"
+        },
+        "pnl": {
+          "type": "number",
+          "format": "float"
+        },
+        "openNotional": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoStopLoseAndProfitOnPerpFiPositionProfits": {
+      "type": "object",
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoStopLoseAndProfitOnPerpFiPositionProfit"
           }
         }
       }

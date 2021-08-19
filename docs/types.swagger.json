@@ -468,6 +468,9 @@
         },
         "Status": {
           "type": "string"
+        },
+        "DexAddress": {
+          "type": "string"
         }
       }
     },

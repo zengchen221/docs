@@ -517,7 +517,7 @@
           "type": "string"
         },
         "preflightCheck": {
-          "$ref": "#/definitions/protoArbitrageurPreflightCheck"
+          "$ref": "#/definitions/protoMMHedgePreflightCheck"
         },
         "mmHedgeExchangeConfigs": {
           "type": "array",
@@ -559,6 +559,22 @@
           "format": "int32"
         },
         "pricePrecision": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "protoMMHedgePreflightCheck": {
+      "type": "object",
+      "properties": {
+        "bscUrl": {
+          "type": "string"
+        },
+        "hedgeInterval": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "positionChangedInterval": {
           "type": "integer",
           "format": "int32"
         }

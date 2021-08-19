@@ -457,7 +457,7 @@
     "protoRobotInfo": {
       "type": "object",
       "properties": {
-        "type": {
+        "robotType": {
           "type": "string"
         },
         "robotName": {

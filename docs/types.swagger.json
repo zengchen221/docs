@@ -457,19 +457,28 @@
     "protoRobotInfo": {
       "type": "object",
       "properties": {
-        "RobotName": {
+        "type": {
           "type": "string"
         },
-        "State": {
+        "robotName": {
           "type": "string"
         },
-        "CreateTime": {
+        "state": {
           "type": "string"
         },
-        "Status": {
+        "createTime": {
           "type": "string"
         },
-        "DexAddress": {
+        "status": {
+          "type": "string"
+        },
+        "cexPlatform": {
+          "type": "string"
+        },
+        "dexPlatform": {
+          "type": "string"
+        },
+        "dexAddress": {
           "type": "string"
         }
       }

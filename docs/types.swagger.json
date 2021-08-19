@@ -40,7 +40,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoArbitrageurConfigByName"
+              "$ref": "#/definitions/protoArbitrageurConfig"
             }
           },
           "default": {
@@ -140,7 +140,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoArbitrageurConfigInits"
+              "$ref": "#/definitions/protoArbitrageurConfigs"
             }
           }
         ],
@@ -236,12 +236,106 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoArbitrageurConfigByName"
+              "$ref": "#/definitions/protoArbitrageurConfig"
             }
           }
         ],
         "tags": [
           "ArbitrageurAPI"
+        ]
+      }
+    },
+    "/mmHedge/getConfigByName": {
+      "get": {
+        "operationId": "MMHedgeAPI_GetConfigByName",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoMMHedgeConfigs"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robotName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "MMHedgeAPI"
+        ]
+      }
+    },
+    "/mmHedge/setRobotByConfigs": {
+      "post": {
+        "operationId": "MMHedgeAPI_SetRobotByConfigs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoMMHedgeConfigs"
+            }
+          }
+        ],
+        "tags": [
+          "MMHedgeAPI"
+        ]
+      }
+    },
+    "/mmHedge/updateConfigByName": {
+      "post": {
+        "operationId": "MMHedgeAPI_UpdateConfigByName",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoMMHedgeConfigs"
+            }
+          }
+        ],
+        "tags": [
+          "MMHedgeAPI"
         ]
       }
     },
@@ -277,47 +371,33 @@
     }
   },
   "definitions": {
-    "protoArbitrageurConfigByName": {
-      "type": "object",
-      "properties": {
-        "RobotName": {
-          "type": "string"
-        },
-        "preflightCheck": {
-          "$ref": "#/definitions/protoArbitrageurPreflightCheck"
-        },
-        "mutiExchangeConfigs": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protoArbitrageurMutiExchangeConfig"
-          }
-        }
-      }
-    },
-    "protoArbitrageurConfigInit": {
+    "protoArbitrageurConfig": {
       "type": "object",
       "properties": {
         "platform": {
           "type": "string"
         },
+        "robotName": {
+          "type": "string"
+        },
         "preflightCheck": {
           "$ref": "#/definitions/protoArbitrageurPreflightCheck"
         },
-        "mutiExchangeConfigs": {
+        "arbitrageurExchangeConfigs": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/protoArbitrageurMutiExchangeConfig"
+            "$ref": "#/definitions/protoArbitrageurExchangeConfig"
           }
         }
       }
     },
-    "protoArbitrageurConfigInits": {
+    "protoArbitrageurConfigs": {
       "type": "object",
       "properties": {
-        "arbitrageurConfigInit": {
+        "ArbitrageurConfigs": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/protoArbitrageurConfigInit"
+            "$ref": "#/definitions/protoArbitrageurConfig"
           }
         }
       }
@@ -393,17 +473,6 @@
         }
       }
     },
-    "protoArbitrageurMutiExchangeConfig": {
-      "type": "object",
-      "properties": {
-        "arbitrageurExchangeConfigs": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protoArbitrageurExchangeConfig"
-          }
-        }
-      }
-    },
     "protoArbitrageurPreflightCheck": {
       "type": "object",
       "properties": {
@@ -435,6 +504,63 @@
         "value": {
           "type": "boolean",
           "format": "boolean"
+        }
+      }
+    },
+    "protoMMHedgeConfig": {
+      "type": "object",
+      "properties": {
+        "platform": {
+          "type": "string"
+        },
+        "robotName": {
+          "type": "string"
+        },
+        "preflightCheck": {
+          "$ref": "#/definitions/protoArbitrageurPreflightCheck"
+        },
+        "mmHedgeExchangeConfigs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoMMHedgeExchangeConfig"
+          }
+        }
+      }
+    },
+    "protoMMHedgeConfigs": {
+      "type": "object",
+      "properties": {
+        "mmHedgeConfigs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoMMHedgeConfig"
+          }
+        }
+      }
+    },
+    "protoMMHedgeExchangeConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "cexMarketId": {
+          "type": "string"
+        },
+        "hedgeRatio": {
+          "type": "string"
+        },
+        "precision": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pricePrecision": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },

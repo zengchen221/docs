@@ -13,7 +13,7 @@
   "paths": {
     "/arbitrageur/getAllRobot": {
       "get": {
-        "operationId": "ArbitrageurAPI_GetAllRobot",
+        "operationId": "RobotAPI_GetAllRobot",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -29,7 +29,7 @@
           }
         },
         "tags": [
-          "ArbitrageurAPI"
+          "RobotAPI"
         ]
       }
     },
@@ -65,7 +65,7 @@
     },
     "/arbitrageur/getRobotAccountInfos": {
       "get": {
-        "operationId": "ArbitrageurAPI_GetRobotAccountInfos",
+        "operationId": "RobotAPI_GetRobotAccountInfos",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -81,13 +81,13 @@
           }
         },
         "tags": [
-          "ArbitrageurAPI"
+          "RobotAPI"
         ]
       }
     },
     "/arbitrageur/restartRobotByName": {
       "post": {
-        "operationId": "ArbitrageurAPI_RestartRobotByName",
+        "operationId": "RobotAPI_RestartRobotByName",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -113,7 +113,7 @@
           }
         ],
         "tags": [
-          "ArbitrageurAPI"
+          "RobotAPI"
         ]
       }
     },
@@ -151,7 +151,7 @@
     },
     "/arbitrageur/startRobotByName": {
       "post": {
-        "operationId": "ArbitrageurAPI_StartRobotByName",
+        "operationId": "RobotAPI_StartRobotByName",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -177,13 +177,13 @@
           }
         ],
         "tags": [
-          "ArbitrageurAPI"
+          "RobotAPI"
         ]
       }
     },
     "/arbitrageur/stopRobotByName": {
       "post": {
-        "operationId": "ArbitrageurAPI_StopRobotByName",
+        "operationId": "RobotAPI_StopRobotByName",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -209,7 +209,7 @@
           }
         ],
         "tags": [
-          "ArbitrageurAPI"
+          "RobotAPI"
         ]
       }
     },

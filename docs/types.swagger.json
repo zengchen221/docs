@@ -444,11 +444,11 @@
         "robotName": {
           "type": "string"
         },
-        "availableBalance": {
+        "cexAvailableBalance": {
           "type": "number",
           "format": "float"
         },
-        "totalBalance": {
+        "cexTotalBalance": {
           "type": "number",
           "format": "float"
         }

@@ -11,28 +11,6 @@
     "application/json"
   ],
   "paths": {
-    "/arbitrageur/getAllRobot": {
-      "get": {
-        "operationId": "RobotAPI_GetAllRobot",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/protoRobotInfos"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "tags": [
-          "RobotAPI"
-        ]
-      }
-    },
     "/arbitrageur/getConfigByName": {
       "get": {
         "operationId": "ArbitrageurAPI_GetConfigByName",
@@ -60,60 +38,6 @@
         ],
         "tags": [
           "ArbitrageurAPI"
-        ]
-      }
-    },
-    "/arbitrageur/getRobotAccountInfos": {
-      "get": {
-        "operationId": "RobotAPI_GetRobotAccountInfos",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/protoRobotAccountInfos"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "tags": [
-          "RobotAPI"
-        ]
-      }
-    },
-    "/arbitrageur/restartRobotByName": {
-      "post": {
-        "operationId": "RobotAPI_RestartRobotByName",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/protoBoolean"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/protoRobotName"
-            }
-          }
-        ],
-        "tags": [
-          "RobotAPI"
         ]
       }
     },
@@ -146,70 +70,6 @@
         ],
         "tags": [
           "ArbitrageurAPI"
-        ]
-      }
-    },
-    "/arbitrageur/startRobotByName": {
-      "post": {
-        "operationId": "RobotAPI_StartRobotByName",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/protoBoolean"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/protoRobotName"
-            }
-          }
-        ],
-        "tags": [
-          "RobotAPI"
-        ]
-      }
-    },
-    "/arbitrageur/stopRobotByName": {
-      "post": {
-        "operationId": "RobotAPI_StopRobotByName",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/protoBoolean"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/protoRobotName"
-            }
-          }
-        ],
-        "tags": [
-          "RobotAPI"
         ]
       }
     },
@@ -362,6 +222,146 @@
             "in": "query",
             "required": false,
             "type": "string"
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/getAllRobot": {
+      "get": {
+        "operationId": "RobotAPI_GetAllRobot",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoRobotInfos"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/getRobotAccountInfos": {
+      "get": {
+        "operationId": "RobotAPI_GetRobotAccountInfos",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoRobotAccountInfos"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/restartRobotByName": {
+      "post": {
+        "operationId": "RobotAPI_RestartRobotByName",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoRobotName"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/startRobotByName": {
+      "post": {
+        "operationId": "RobotAPI_StartRobotByName",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoRobotName"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/stopRobotByName": {
+      "post": {
+        "operationId": "RobotAPI_StopRobotByName",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoRobotName"
+            }
           }
         ],
         "tags": [

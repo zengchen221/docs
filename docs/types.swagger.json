@@ -190,7 +190,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoMMHedgeConfigs"
+              "$ref": "#/definitions/protoMMHedgeConfig"
             }
           }
         ],

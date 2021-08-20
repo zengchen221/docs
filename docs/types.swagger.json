@@ -251,9 +251,9 @@
         ]
       }
     },
-    "/robot/getRobotAccountInfos": {
+    "/robot/getRobotAccountInfo": {
       "get": {
-        "operationId": "RobotAPI_GetRobotAccountInfos",
+        "operationId": "RobotAPI_GetRobotAccountInfo",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -268,6 +268,14 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "robotName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
         "tags": [
           "RobotAPI"
         ]
@@ -580,7 +588,7 @@
         }
       }
     },
-    "protoRobotAccountInfos": {
+    "protoRobotAccountInfo": {
       "type": "object",
       "properties": {
         "robotName": {
@@ -593,6 +601,17 @@
         "cexTotalBalance": {
           "type": "number",
           "format": "float"
+        }
+      }
+    },
+    "protoRobotAccountInfos": {
+      "type": "object",
+      "properties": {
+        "infos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoRobotAccountInfo"
+          }
         }
       }
     },

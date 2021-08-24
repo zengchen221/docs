@@ -402,7 +402,7 @@
     "protoArbitrageurConfigs": {
       "type": "object",
       "properties": {
-        "ArbitrageurConfigs": {
+        "arbitrageurConfigs": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/protoArbitrageurConfig"
@@ -503,6 +503,10 @@
         "CEX_MARGIN_RATIO_THRESHOLD": {
           "type": "number",
           "format": "float"
+        },
+        "CEX_LIQUIDATION_RATIO": {
+          "type": "number",
+          "format": "float"
         }
       }
     },
@@ -599,6 +603,14 @@
           "format": "float"
         },
         "cexTotalBalance": {
+          "type": "number",
+          "format": "float"
+        },
+        "cexUnrealizedPnl": {
+          "type": "number",
+          "format": "float"
+        },
+        "cexPosition": {
           "type": "number",
           "format": "float"
         }

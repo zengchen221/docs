@@ -18,7 +18,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoArbitrageurConfig"
+              "$ref": "#/definitions/protoarbitrageurConfig"
             }
           },
           "default": {
@@ -64,7 +64,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoArbitrageurConfigs"
+              "$ref": "#/definitions/protoarbitrageurConfigs"
             }
           }
         ],
@@ -96,7 +96,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoArbitrageurConfig"
+              "$ref": "#/definitions/protoarbitrageurConfig"
             }
           }
         ],
@@ -236,7 +236,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoRobotInfos"
+              "$ref": "#/definitions/protorobotInfos"
             }
           },
           "default": {
@@ -258,7 +258,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoRobotAccountInfos"
+              "$ref": "#/definitions/protorobotAccountInfos"
             }
           },
           "default": {
@@ -304,7 +304,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoRobotName"
+              "$ref": "#/definitions/protorobotName"
             }
           }
         ],
@@ -336,7 +336,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoRobotName"
+              "$ref": "#/definitions/protorobotName"
             }
           }
         ],
@@ -368,7 +368,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoRobotName"
+              "$ref": "#/definitions/protorobotName"
             }
           }
         ],
@@ -379,137 +379,6 @@
     }
   },
   "definitions": {
-    "protoArbitrageurConfig": {
-      "type": "object",
-      "properties": {
-        "platform": {
-          "type": "string"
-        },
-        "robotName": {
-          "type": "string"
-        },
-        "preflightCheck": {
-          "$ref": "#/definitions/protoArbitrageurPreflightCheck"
-        },
-        "arbitrageurExchangeConfigs": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protoArbitrageurExchangeConfig"
-          }
-        }
-      }
-    },
-    "protoArbitrageurConfigs": {
-      "type": "object",
-      "properties": {
-        "arbitrageurConfigs": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protoArbitrageurConfig"
-          }
-        }
-      }
-    },
-    "protoArbitrageurExchangeConfig": {
-      "type": "object",
-      "properties": {
-        "Pair": {
-          "type": "string"
-        },
-        "ENABLED": {
-          "type": "boolean",
-          "format": "boolean"
-        },
-        "ASSET_CAP": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "SAKEPERP_LEVERAGE": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "SAKEPERP_MIN_TRADE_NOTIONAL": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "SAKEPERP_LONG_ENTRY_TRIGGER": {
-          "type": "number",
-          "format": "float"
-        },
-        "SAKEPERP_LONG_CLOSE_TRIGGER": {
-          "type": "number",
-          "format": "float"
-        },
-        "SAKEPERP_LONG_OPEN_PRICE_SPREAD": {
-          "type": "number",
-          "format": "float"
-        },
-        "SAKEPERP_LONG_CEX_OPEN_PRICE_SPREAD": {
-          "type": "number",
-          "format": "float"
-        },
-        "SAKEPERP_SHORT_ENTRY_TRIGGER": {
-          "type": "number",
-          "format": "float"
-        },
-        "SAKEPERP_SHORT_CLOSE_TRIGGER": {
-          "type": "number",
-          "format": "float"
-        },
-        "SAKEPERP_SHORT_OPEN_PRICE_SPREAD": {
-          "type": "number",
-          "format": "float"
-        },
-        "SAKEPERP_SHORT_CEX_OPEN_PRICE_SPREAD": {
-          "type": "number",
-          "format": "float"
-        },
-        "ADJUST_MARGIN_RATIO_THRESHOLD": {
-          "type": "number",
-          "format": "float"
-        },
-        "MAX_SLIPPAGE_RATIO": {
-          "type": "number",
-          "format": "float"
-        },
-        "CEX_MARKET_ID": {
-          "type": "string"
-        },
-        "CEX_MIN_TRADE_SIZE": {
-          "type": "number",
-          "format": "float"
-        }
-      }
-    },
-    "protoArbitrageurPreflightCheck": {
-      "type": "object",
-      "properties": {
-        "BLOCK_TIMESTAMP_FRESHNESS_THRESHOLD": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "GAS_BALANCE_THRESHOLD": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "USD_BALANCE_THRESHOLD": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "CEX_USD_BALANCE_THRESHOLD": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "CEX_MARGIN_RATIO_THRESHOLD": {
-          "type": "number",
-          "format": "float"
-        },
-        "CEX_LIQUIDATION_RATIO": {
-          "type": "number",
-          "format": "float"
-        }
-      }
-    },
     "protoBoolean": {
       "type": "object",
       "properties": {
@@ -592,7 +461,158 @@
         }
       }
     },
-    "protoRobotAccountInfo": {
+    "protoString": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "protoarbitrageurConfig": {
+      "type": "object",
+      "properties": {
+        "platform": {
+          "type": "string"
+        },
+        "robotName": {
+          "type": "string"
+        },
+        "preflightCheck": {
+          "$ref": "#/definitions/protoarbitrageurPreflightCheck"
+        },
+        "arbitrageurExchangeConfigs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoarbitrageurExchangeConfig"
+          }
+        }
+      }
+    },
+    "protoarbitrageurConfigs": {
+      "type": "object",
+      "properties": {
+        "arbitrageurConfigs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoarbitrageurConfig"
+          }
+        }
+      }
+    },
+    "protoarbitrageurExchangeConfig": {
+      "type": "object",
+      "properties": {
+        "Pair": {
+          "type": "string"
+        },
+        "ENABLED": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "ASSET_CAP": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "SAKEPERP_LEVERAGE": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "SAKEPERP_MIN_TRADE_NOTIONAL": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "SAKEPERP_LONG_ENTRY_TRIGGER": {
+          "type": "number",
+          "format": "float"
+        },
+        "SAKEPERP_LONG_CLOSE_TRIGGER": {
+          "type": "number",
+          "format": "float"
+        },
+        "SAKEPERP_LONG_OPEN_PRICE_SPREAD": {
+          "type": "number",
+          "format": "float"
+        },
+        "SAKEPERP_LONG_CEX_OPEN_PRICE_SPREAD": {
+          "type": "number",
+          "format": "float"
+        },
+        "SAKEPERP_SHORT_ENTRY_TRIGGER": {
+          "type": "number",
+          "format": "float"
+        },
+        "SAKEPERP_SHORT_CLOSE_TRIGGER": {
+          "type": "number",
+          "format": "float"
+        },
+        "SAKEPERP_SHORT_OPEN_PRICE_SPREAD": {
+          "type": "number",
+          "format": "float"
+        },
+        "SAKEPERP_SHORT_CEX_OPEN_PRICE_SPREAD": {
+          "type": "number",
+          "format": "float"
+        },
+        "ADJUST_MARGIN_RATIO_THRESHOLD": {
+          "type": "number",
+          "format": "float"
+        },
+        "MAX_SLIPPAGE_RATIO": {
+          "type": "number",
+          "format": "float"
+        },
+        "CEX_MARKET_ID": {
+          "type": "string"
+        },
+        "CEX_MIN_TRADE_SIZE": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoarbitrageurPreflightCheck": {
+      "type": "object",
+      "properties": {
+        "BLOCK_TIMESTAMP_FRESHNESS_THRESHOLD": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "GAS_BALANCE_THRESHOLD": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "USD_BALANCE_THRESHOLD": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "CEX_USD_BALANCE_THRESHOLD": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "CEX_MARGIN_RATIO_THRESHOLD": {
+          "type": "number",
+          "format": "float"
+        },
+        "CEX_LIQUIDATION_RATIO": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "protorobotAccountInfo": {
       "type": "object",
       "properties": {
         "robotName": {
@@ -616,18 +636,18 @@
         }
       }
     },
-    "protoRobotAccountInfos": {
+    "protorobotAccountInfos": {
       "type": "object",
       "properties": {
         "infos": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/protoRobotAccountInfo"
+            "$ref": "#/definitions/protorobotAccountInfo"
           }
         }
       }
     },
-    "protoRobotInfo": {
+    "protorobotInfo": {
       "type": "object",
       "properties": {
         "robotType": {
@@ -656,42 +676,22 @@
         }
       }
     },
-    "protoRobotInfos": {
+    "protorobotInfos": {
       "type": "object",
       "properties": {
         "robots": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/protoRobotInfo"
+            "$ref": "#/definitions/protorobotInfo"
           }
         }
       }
     },
-    "protoRobotName": {
+    "protorobotName": {
       "type": "object",
       "properties": {
         "robotName": {
           "type": "string"
-        }
-      }
-    },
-    "protoString": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "string"
-        }
-      }
-    },
-    "protobufAny": {
-      "type": "object",
-      "properties": {
-        "type_url": {
-          "type": "string"
-        },
-        "value": {
-          "type": "string",
-          "format": "byte"
         }
       }
     },

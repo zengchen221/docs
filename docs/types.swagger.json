@@ -579,16 +579,16 @@
           "format": "int32"
         },
         "GAS_BALANCE_THRESHOLD": {
-          "type": "integer",
-          "format": "int32"
+          "type": "number",
+          "format": "float"
         },
         "USD_BALANCE_THRESHOLD": {
-          "type": "integer",
-          "format": "int32"
+          "type": "number",
+          "format": "float"
         },
         "CEX_USD_BALANCE_THRESHOLD": {
-          "type": "integer",
-          "format": "int32"
+          "type": "number",
+          "format": "float"
         },
         "CEX_MARGIN_RATIO_THRESHOLD": {
           "type": "number",

@@ -112,7 +112,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoMMHedgeConfigs"
+              "$ref": "#/definitions/protommHedgeConfig"
             }
           },
           "default": {
@@ -158,7 +158,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoMMHedgeConfigs"
+              "$ref": "#/definitions/protommHedgeConfigs"
             }
           }
         ],
@@ -190,7 +190,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/protoMMHedgeConfig"
+              "$ref": "#/definitions/protommHedgeConfig"
             }
           }
         ],
@@ -259,6 +259,36 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protorobotAccountInfos"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robotName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/log": {
+      "get": {
+        "operationId": "RobotAPI_Log",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoString"
             }
           },
           "default": {
@@ -385,79 +415,6 @@
         "value": {
           "type": "boolean",
           "format": "boolean"
-        }
-      }
-    },
-    "protoMMHedgeConfig": {
-      "type": "object",
-      "properties": {
-        "platform": {
-          "type": "string"
-        },
-        "robotName": {
-          "type": "string"
-        },
-        "preflightCheck": {
-          "$ref": "#/definitions/protoMMHedgePreflightCheck"
-        },
-        "mmHedgeExchangeConfigs": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protoMMHedgeExchangeConfig"
-          }
-        }
-      }
-    },
-    "protoMMHedgeConfigs": {
-      "type": "object",
-      "properties": {
-        "mmHedgeConfigs": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protoMMHedgeConfig"
-          }
-        }
-      }
-    },
-    "protoMMHedgeExchangeConfig": {
-      "type": "object",
-      "properties": {
-        "enabled": {
-          "type": "boolean",
-          "format": "boolean"
-        },
-        "symbol": {
-          "type": "string"
-        },
-        "cexMarketId": {
-          "type": "string"
-        },
-        "hedgeRatio": {
-          "type": "string"
-        },
-        "precision": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "pricePrecision": {
-          "type": "integer",
-          "format": "int32"
-        }
-      }
-    },
-    "protoMMHedgePreflightCheck": {
-      "type": "object",
-      "properties": {
-        "bscUrl": {
-          "type": "string"
-        },
-        "hedgeInterval": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "positionChangedInterval": {
-          "type": "integer",
-          "format": "int32"
         }
       }
     },
@@ -609,6 +566,79 @@
         "value": {
           "type": "string",
           "format": "byte"
+        }
+      }
+    },
+    "protommHedgeConfig": {
+      "type": "object",
+      "properties": {
+        "platform": {
+          "type": "string"
+        },
+        "robotName": {
+          "type": "string"
+        },
+        "preflightCheck": {
+          "$ref": "#/definitions/protommHedgePreflightCheck"
+        },
+        "mmHedgeExchangeConfigs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protommHedgeExchangeConfig"
+          }
+        }
+      }
+    },
+    "protommHedgeConfigs": {
+      "type": "object",
+      "properties": {
+        "mmHedgeConfigs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protommHedgeConfig"
+          }
+        }
+      }
+    },
+    "protommHedgeExchangeConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "cexMarketId": {
+          "type": "string"
+        },
+        "hedgeRatio": {
+          "type": "string"
+        },
+        "precision": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pricePrecision": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "protommHedgePreflightCheck": {
+      "type": "object",
+      "properties": {
+        "bscUrl": {
+          "type": "string"
+        },
+        "hedgeInterval": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "positionChangedInterval": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },

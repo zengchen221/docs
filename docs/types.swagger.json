@@ -406,6 +406,38 @@
           "RobotAPI"
         ]
       }
+    },
+    "/robot/transferUSDCOnFtx": {
+      "post": {
+        "operationId": "RobotAPI_Transfer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/prototransfer"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
     }
   },
   "definitions": {
@@ -721,6 +753,21 @@
       "type": "object",
       "properties": {
         "robotName": {
+          "type": "string"
+        }
+      }
+    },
+    "prototransfer": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "float"
+        },
+        "source": {
+          "type": "string"
+        },
+        "destination": {
           "type": "string"
         }
       }

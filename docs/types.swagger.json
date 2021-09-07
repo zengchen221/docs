@@ -283,36 +283,6 @@
         ]
       }
     },
-    "/robot/getRobotAccountInfo": {
-      "get": {
-        "operationId": "RobotAPI_GetRobotAccountInfo",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/protorobotAccountInfos"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "robotName",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "RobotAPI"
-        ]
-      }
-    },
     "/robot/log": {
       "get": {
         "operationId": "RobotAPI_Log",
@@ -735,41 +705,6 @@
         "positionChangedInterval": {
           "type": "integer",
           "format": "int32"
-        }
-      }
-    },
-    "protorobotAccountInfo": {
-      "type": "object",
-      "properties": {
-        "robotName": {
-          "type": "string"
-        },
-        "cexAvailableBalance": {
-          "type": "number",
-          "format": "float"
-        },
-        "cexTotalBalance": {
-          "type": "number",
-          "format": "float"
-        },
-        "cexUnrealizedPnl": {
-          "type": "number",
-          "format": "float"
-        },
-        "cexPosition": {
-          "type": "number",
-          "format": "float"
-        }
-      }
-    },
-    "protorobotAccountInfos": {
-      "type": "object",
-      "properties": {
-        "infos": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protorobotAccountInfo"
-          }
         }
       }
     },

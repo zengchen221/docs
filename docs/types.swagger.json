@@ -811,7 +811,7 @@
         "cexPlatform": {
           "type": "string"
         },
-        "cexSubName": {
+        "cexSubAccount": {
           "type": "string"
         },
         "dexPlatform": {

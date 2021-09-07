@@ -359,6 +359,32 @@
         ]
       }
     },
+    "/robot/subAccountInfos": {
+      "post": {
+        "operationId": "SubAccountInfos",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protorobotSubAccountInfoRsps"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protorobotSubAccountInfoRequest"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
     "/robot/transferUSDCOnFtx": {
       "post": {
         "operationId": "TransferUSDCOnFtx",
@@ -705,6 +731,76 @@
       "properties": {
         "robotName": {
           "type": "string"
+        }
+      }
+    },
+    "protorobotPositionInfo": {
+      "type": "object",
+      "properties": {
+        "future": {
+          "type": "string"
+        },
+        "side": {
+          "type": "string"
+        },
+        "entryPrice": {
+          "type": "number",
+          "format": "float"
+        },
+        "netSize": {
+          "type": "number",
+          "format": "float"
+        },
+        "unrealizedPnl": {
+          "type": "number",
+          "format": "float"
+        },
+        "realizedPnl": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protorobotSubAccountInfoRequest": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "subAccount": {
+          "type": "string"
+        }
+      }
+    },
+    "protorobotSubAccountInfoRsp": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "cexTotalBalance": {
+          "type": "number",
+          "format": "float"
+        },
+        "cexSubAccountName": {
+          "type": "string"
+        },
+        "infos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protorobotPositionInfo"
+          }
+        }
+      }
+    },
+    "protorobotSubAccountInfoRsps": {
+      "type": "object",
+      "properties": {
+        "infos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protorobotSubAccountInfoRsp"
+          }
         }
       }
     },

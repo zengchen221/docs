@@ -4,6 +4,10 @@
     "title": "types.proto",
     "version": "version not set"
   },
+  "schemes": [
+    "http",
+    "https"
+  ],
   "consumes": [
     "application/json"
   ],
@@ -13,18 +17,12 @@
   "paths": {
     "/arbitrageur/getConfigByName": {
       "get": {
-        "operationId": "ArbitrageurAPI_GetConfigByName",
+        "operationId": "GetConfigByName",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protoarbitrageurConfig"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -43,18 +41,12 @@
     },
     "/arbitrageur/setRobotByConfigs": {
       "post": {
-        "operationId": "ArbitrageurAPI_SetRobotByConfigs",
+        "operationId": "SetRobotByConfigs",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protoBoolean"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -75,18 +67,12 @@
     },
     "/arbitrageur/updateConfigByName": {
       "post": {
-        "operationId": "ArbitrageurAPI_UpdateConfigByName",
+        "operationId": "UpdateConfigByName",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protoBoolean"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -107,18 +93,12 @@
     },
     "/mmHedge/getConfigByName": {
       "get": {
-        "operationId": "MMHedgeAPI_GetConfigByName",
+        "operationId": "GetConfigByName",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protommHedgeConfig"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -137,18 +117,12 @@
     },
     "/mmHedge/setRobotByConfigs": {
       "post": {
-        "operationId": "MMHedgeAPI_SetRobotByConfigs",
+        "operationId": "SetRobotByConfigs",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protoBoolean"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -169,18 +143,12 @@
     },
     "/mmHedge/updateConfigByName": {
       "post": {
-        "operationId": "MMHedgeAPI_UpdateConfigByName",
+        "operationId": "UpdateConfigByName",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protoBoolean"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -201,18 +169,12 @@
     },
     "/robot/addAccountInfo": {
       "post": {
-        "operationId": "RobotAPI_AddAccountInfo",
+        "operationId": "AddAccountInfo",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protoBoolean"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -233,18 +195,12 @@
     },
     "/robot/debug": {
       "get": {
-        "operationId": "RobotAPI_Debug",
+        "operationId": "Debug",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protoString"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -263,51 +219,15 @@
     },
     "/robot/getAllRobot": {
       "get": {
-        "operationId": "RobotAPI_GetAllRobot",
+        "operationId": "GetAllRobot",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protorobotInfos"
             }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
           }
         },
-        "tags": [
-          "RobotAPI"
-        ]
-      }
-    },
-    "/robot/log": {
-      "get": {
-        "operationId": "RobotAPI_Log",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/protoString"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "robotName",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
         "tags": [
           "RobotAPI"
         ]
@@ -315,18 +235,12 @@
     },
     "/robot/restartRobotByName": {
       "post": {
-        "operationId": "RobotAPI_RestartRobotByName",
+        "operationId": "RestartRobotByName",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protoBoolean"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -347,18 +261,12 @@
     },
     "/robot/startRobotByName": {
       "post": {
-        "operationId": "RobotAPI_StartRobotByName",
+        "operationId": "StartRobotByName",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protoBoolean"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -379,18 +287,12 @@
     },
     "/robot/stopRobotByName": {
       "post": {
-        "operationId": "RobotAPI_StopRobotByName",
+        "operationId": "StopRobotByName",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protoBoolean"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -411,18 +313,12 @@
     },
     "/robot/subAccountInfos": {
       "post": {
-        "operationId": "RobotAPI_SubAccountInfos",
+        "operationId": "SubAccountInfos",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protorobotSubAccountInfoRsps"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -441,20 +337,14 @@
         ]
       }
     },
-    "/robot/transferUSDCOnFtx": {
+    "/robot/transferOnCex": {
       "post": {
-        "operationId": "RobotAPI_TransferUSDCOnFtx",
+        "operationId": "TransferOnCex",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/protoBoolean"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -464,7 +354,33 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/prototransfer"
+              "$ref": "#/definitions/protorobotTransferOnCex"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/transferOnDex": {
+      "post": {
+        "operationId": "TransferOnDex",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protorobotTransferOnDex"
             }
           }
         ],
@@ -620,18 +536,6 @@
         "CEX_LIQUIDATION_RATIO": {
           "type": "number",
           "format": "float"
-        }
-      }
-    },
-    "protobufAny": {
-      "type": "object",
-      "properties": {
-        "type_url": {
-          "type": "string"
-        },
-        "value": {
-          "type": "string",
-          "format": "byte"
         }
       }
     },
@@ -846,39 +750,35 @@
         }
       }
     },
-    "prototransfer": {
+    "protorobotTransferOnCex": {
       "type": "object",
       "properties": {
+        "fromRobotName": {
+          "type": "string"
+        },
         "amount": {
           "type": "number",
           "format": "float"
         },
-        "source": {
-          "type": "string"
-        },
-        "destination": {
+        "toRobotName": {
           "type": "string"
         }
       }
     },
-    "runtimeError": {
+    "protorobotTransferOnDex": {
       "type": "object",
       "properties": {
-        "error": {
+        "fromRobotName": {
           "type": "string"
         },
-        "code": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "message": {
+        "amountCoin": {
           "type": "string"
         },
-        "details": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/protobufAny"
-          }
+        "amountToken": {
+          "type": "string"
+        },
+        "toRobotName": {
+          "type": "string"
         }
       }
     }

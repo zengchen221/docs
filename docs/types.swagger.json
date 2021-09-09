@@ -716,9 +716,6 @@
       "properties": {
         "robotName": {
           "type": "string"
-        },
-        "subAccount": {
-          "type": "string"
         }
       }
     },

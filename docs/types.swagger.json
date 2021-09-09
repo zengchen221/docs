@@ -233,6 +233,22 @@
         ]
       }
     },
+    "/robot/getAllSubAccount": {
+      "get": {
+        "operationId": "GetAllSubAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protorobotAllSubAccount"
+            }
+          }
+        },
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
     "/robot/restartRobotByName": {
       "post": {
         "operationId": "RestartRobotByName",
@@ -629,6 +645,17 @@
         }
       }
     },
+    "protorobotAllSubAccount": {
+      "type": "object",
+      "properties": {
+        "subAccounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protorobotSubAccount"
+          }
+        }
+      }
+    },
     "protorobotInfo": {
       "type": "object",
       "properties": {
@@ -711,6 +738,22 @@
         }
       }
     },
+    "protorobotSubAccount": {
+      "type": "object",
+      "properties": {
+        "nickname": {
+          "type": "string"
+        },
+        "deletable": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "editable": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
     "protorobotSubAccountInfoRequest": {
       "type": "object",
       "properties": {
@@ -726,6 +769,10 @@
           "type": "string"
         },
         "cexTotalBalance": {
+          "type": "number",
+          "format": "float"
+        },
+        "cexAvailableBalance": {
           "type": "number",
           "format": "float"
         },

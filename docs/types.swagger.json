@@ -312,7 +312,7 @@
       }
     },
     "/robot/subAccountInfos": {
-      "post": {
+      "get": {
         "operationId": "SubAccountInfos",
         "responses": {
           "200": {
@@ -324,12 +324,16 @@
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/protorobotSubAccountInfoRequest"
-            }
+            "name": "robotName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "subAccount",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -658,6 +662,10 @@
         },
         "dexAddress": {
           "type": "string"
+        },
+        "robotCreateType": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -707,17 +715,6 @@
         }
       }
     },
-    "protorobotSubAccountInfoRequest": {
-      "type": "object",
-      "properties": {
-        "robotName": {
-          "type": "string"
-        },
-        "subAccount": {
-          "type": "string"
-        }
-      }
-    },
     "protorobotSubAccountInfoRsp": {
       "type": "object",
       "properties": {
@@ -731,7 +728,7 @@
         "cexSubAccountName": {
           "type": "string"
         },
-        "infos": {
+        "positions": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/protorobotPositionInfo"

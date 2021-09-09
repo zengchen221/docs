@@ -312,7 +312,7 @@
       }
     },
     "/robot/subAccountInfos": {
-      "get": {
+      "post": {
         "operationId": "SubAccountInfos",
         "responses": {
           "200": {
@@ -324,16 +324,12 @@
         },
         "parameters": [
           {
-            "name": "robotName",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "subAccount",
-            "in": "query",
-            "required": false,
-            "type": "string"
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protorobotSubAccountInfoRequest"
+            }
           }
         ],
         "tags": [
@@ -712,6 +708,17 @@
         "realizedPnl": {
           "type": "number",
           "format": "float"
+        }
+      }
+    },
+    "protorobotSubAccountInfoRequest": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "subAccount": {
+          "type": "string"
         }
       }
     },

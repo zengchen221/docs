@@ -634,14 +634,22 @@
         "robotName": {
           "type": "string"
         },
-        "bscAddress": {
+        "dexAddress": {
           "type": "string"
         },
-        "bscEncryptPrivateKey": {
+        "dexEncryptPrivateKey": {
           "type": "string"
+        },
+        "dexInitialBalance": {
+          "type": "number",
+          "format": "float"
         },
         "cexSubAccountName": {
           "type": "string"
+        },
+        "cexInitialBalance": {
+          "type": "number",
+          "format": "float"
         }
       }
     },
@@ -773,6 +781,14 @@
           "format": "float"
         },
         "cexAvailableBalance": {
+          "type": "number",
+          "format": "float"
+        },
+        "dexInitialBalance": {
+          "type": "number",
+          "format": "float"
+        },
+        "cexInitialBalance": {
           "type": "number",
           "format": "float"
         },

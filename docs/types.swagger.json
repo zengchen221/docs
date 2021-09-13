@@ -250,7 +250,7 @@
       }
     },
     "/robot/getOrdersHistory": {
-      "get": {
+      "post": {
         "operationId": "GetOrdersHistory",
         "responses": {
           "200": {
@@ -260,34 +260,6 @@
             }
           }
         },
-        "parameters": [
-          {
-            "name": "robotName",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "market",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "startTime",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "endTime",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
         "tags": [
           "RobotAPI"
         ]

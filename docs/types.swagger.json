@@ -249,6 +249,66 @@
         ]
       }
     },
+    "/robot/getOrdersHistory": {
+      "get": {
+        "operationId": "GetOrdersHistory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protorobotGetOrdersHistoryRsps"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robotName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "market",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "endTime",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/getStatisticalInfo": {
+      "get": {
+        "operationId": "GetStatisticalInfo",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protorobotStatisticalInfo"
+            }
+          }
+        },
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
     "/robot/restartRobotByName": {
       "post": {
         "operationId": "RestartRobotByName",
@@ -664,6 +724,45 @@
         }
       }
     },
+    "protorobotGetOrdersHistoryRsp": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "market": {
+          "type": "string"
+        },
+        "size": {
+          "type": "number",
+          "format": "float"
+        },
+        "side": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "float"
+        },
+        "future": {
+          "type": "string"
+        }
+      }
+    },
+    "protorobotGetOrdersHistoryRsps": {
+      "type": "object",
+      "properties": {
+        "ordersHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protorobotGetOrdersHistoryRsp"
+          }
+        }
+      }
+    },
     "protorobotInfo": {
       "type": "object",
       "properties": {
@@ -741,6 +840,27 @@
           "format": "float"
         },
         "realizedPnl": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protorobotStatisticalInfo": {
+      "type": "object",
+      "properties": {
+        "cexArbiBalanceStart": {
+          "type": "number",
+          "format": "float"
+        },
+        "cexArbiBalanceCurrent": {
+          "type": "number",
+          "format": "float"
+        },
+        "cexArbiBalancePnl": {
+          "type": "number",
+          "format": "float"
+        },
+        "dexArbiBalanceStart": {
           "type": "number",
           "format": "float"
         }

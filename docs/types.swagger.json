@@ -689,10 +689,18 @@
           "type": "number",
           "format": "float"
         },
+        "dexStartBalance": {
+          "type": "number",
+          "format": "float"
+        },
         "cexSubAccountName": {
           "type": "string"
         },
         "cexInitialBalance": {
+          "type": "number",
+          "format": "float"
+        },
+        "cexStartBalance": {
           "type": "number",
           "format": "float"
         }
@@ -731,9 +739,6 @@
         "robotName": {
           "type": "string"
         },
-        "market": {
-          "type": "string"
-        },
         "size": {
           "type": "number",
           "format": "float"
@@ -752,6 +757,9 @@
           "type": "string"
         },
         "type": {
+          "type": "string"
+        },
+        "createdAt": {
           "type": "string"
         }
       }

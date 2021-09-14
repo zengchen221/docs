@@ -715,9 +715,6 @@
         "robotName": {
           "type": "string"
         },
-        "market": {
-          "type": "string"
-        },
         "startTime": {
           "type": "integer",
           "format": "int32"
@@ -752,6 +749,9 @@
           "format": "float"
         },
         "future": {
+          "type": "string"
+        },
+        "type": {
           "type": "string"
         }
       }

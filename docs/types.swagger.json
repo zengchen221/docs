@@ -845,7 +845,7 @@
         "side": {
           "type": "string"
         },
-        "entryPrice": {
+        "openPrice": {
           "type": "number",
           "format": "float"
         },
@@ -857,7 +857,15 @@
           "type": "number",
           "format": "float"
         },
-        "realizedPnl": {
+        "liquidationPrice": {
+          "type": "number",
+          "format": "float"
+        },
+        "margin": {
+          "type": "number",
+          "format": "float"
+        },
+        "marginRate": {
           "type": "number",
           "format": "float"
         }

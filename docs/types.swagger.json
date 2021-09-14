@@ -260,6 +260,16 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protorobotGetOrdersHistory"
+            }
+          }
+        ],
         "tags": [
           "RobotAPI"
         ]
@@ -459,7 +469,10 @@
     "protoarbitrageurConfig": {
       "type": "object",
       "properties": {
-        "platform": {
+        "cexPlatform": {
+          "type": "string"
+        },
+        "dexPlatform": {
           "type": "string"
         },
         "robotName": {
@@ -696,6 +709,25 @@
         }
       }
     },
+    "protorobotGetOrdersHistory": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "market": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "endTime": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
     "protorobotGetOrdersHistoryRsp": {
       "type": "object",
       "properties": {
@@ -744,13 +776,13 @@
         "robotName": {
           "type": "string"
         },
-        "state": {
-          "type": "string"
-        },
         "createTime": {
           "type": "string"
         },
-        "status": {
+        "robotState": {
+          "type": "string"
+        },
+        "containerStatus": {
           "type": "string"
         },
         "cexPlatform": {

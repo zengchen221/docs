@@ -784,15 +784,6 @@
         "robotName": {
           "type": "string"
         },
-        "createTime": {
-          "type": "string"
-        },
-        "robotState": {
-          "type": "string"
-        },
-        "containerStatus": {
-          "type": "string"
-        },
         "cexPlatform": {
           "type": "string"
         },
@@ -805,9 +796,24 @@
         "dexAddress": {
           "type": "string"
         },
+        "robotState": {
+          "type": "string"
+        },
+        "robotCreateTime": {
+          "type": "string"
+        },
         "robotCreateType": {
           "type": "integer",
           "format": "int32"
+        },
+        "containerCreateTime": {
+          "type": "string"
+        },
+        "containerState": {
+          "type": "string"
+        },
+        "containerStatus": {
+          "type": "string"
         }
       }
     },
@@ -921,6 +927,14 @@
           "format": "float"
         },
         "cexInitialBalance": {
+          "type": "number",
+          "format": "float"
+        },
+        "dexStartBalance": {
+          "type": "number",
+          "format": "float"
+        },
+        "cexStartBalance": {
           "type": "number",
           "format": "float"
         },

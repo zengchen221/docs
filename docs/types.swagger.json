@@ -812,6 +812,38 @@
           "RobotAPI"
         ]
       }
+    },
+    "/robot/updateRobotEndpoint": {
+      "post": {
+        "operationId": "RobotAPI_UpdateRobotEndpoint",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoUpdateRobotEndpointRequest"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
     }
   },
   "definitions": {
@@ -837,6 +869,23 @@
       "type": "object",
       "properties": {
         "value": {
+          "type": "string"
+        }
+      }
+    },
+    "protoUpdateRobotEndpointRequest": {
+      "type": "object",
+      "properties": {
+        "robotNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "endpointBackUp": {
           "type": "string"
         }
       }

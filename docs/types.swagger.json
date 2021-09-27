@@ -231,6 +231,38 @@
         ]
       }
     },
+    "/robot/addCexUnusedAccount": {
+      "post": {
+        "operationId": "RobotAPI_AddCexUnusedAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protorobotAddCexUnusedAccount"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
     "/robot/debug": {
       "get": {
         "operationId": "RobotAPI_Debug",
@@ -300,6 +332,14 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "robotName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
         "tags": [
           "RobotAPI"
         ]
@@ -708,6 +748,70 @@
           "RobotAPI"
         ]
       }
+    },
+    "/robot/updateCexBalance": {
+      "post": {
+        "operationId": "RobotAPI_UpdateCexBalance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protorobotUpdateCexBalance"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/updateDexBalance": {
+      "post": {
+        "operationId": "RobotAPI_UpdateDexBalance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protorobotUpdateDexBalance"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
     }
   },
   "definitions": {
@@ -962,6 +1066,12 @@
         "robotName": {
           "type": "string"
         },
+        "robotType": {
+          "type": "string"
+        },
+        "dexPlatform": {
+          "type": "string"
+        },
         "dexAddress": {
           "type": "string"
         },
@@ -976,6 +1086,9 @@
           "type": "number",
           "format": "float"
         },
+        "cexPlatform": {
+          "type": "string"
+        },
         "cexSubAccountName": {
           "type": "string"
         },
@@ -986,6 +1099,28 @@
         "cexStartBalance": {
           "type": "number",
           "format": "float"
+        }
+      }
+    },
+    "protorobotAddCexUnusedAccount": {
+      "type": "object",
+      "properties": {
+        "apiKey": {
+          "type": "string"
+        },
+        "encryptedApiSecret": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "used": {
+          "type": "boolean",
+          "format": "boolean"
         }
       }
     },
@@ -1259,6 +1394,29 @@
           "type": "string"
         },
         "toRobotName": {
+          "type": "string"
+        }
+      }
+    },
+    "protorobotUpdateCexBalance": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "balance": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protorobotUpdateDexBalance": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "balance": {
           "type": "string"
         }
       }

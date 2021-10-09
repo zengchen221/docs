@@ -105,6 +105,100 @@
         ]
       }
     },
+    "/arbitrageurV2/getConfigByName": {
+      "get": {
+        "operationId": "ArbitrageurV2API_GetConfigByName",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoarbitrageurV2Config"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "robotName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ArbitrageurV2API"
+        ]
+      }
+    },
+    "/arbitrageurV2/setRobotByConfigs": {
+      "post": {
+        "operationId": "ArbitrageurV2API_SetRobotByConfigs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoarbitrageurV2Configs"
+            }
+          }
+        ],
+        "tags": [
+          "ArbitrageurV2API"
+        ]
+      }
+    },
+    "/arbitrageurV2/updateConfigByName": {
+      "post": {
+        "operationId": "ArbitrageurV2API_UpdateConfigByName",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoarbitrageurV2Config"
+            }
+          }
+        ],
+        "tags": [
+          "ArbitrageurV2API"
+        ]
+      }
+    },
     "/mmHedge/getConfigByName": {
       "get": {
         "operationId": "MMHedgeAPI_GetConfigByName",
@@ -916,6 +1010,15 @@
     "protoarbitrageurConfigs": {
       "type": "object",
       "properties": {
+        "WEB3_ENDPOINT": {
+          "type": "string"
+        },
+        "WEB3_ENDPOINT_BACKUP": {
+          "type": "string"
+        },
+        "imageName": {
+          "type": "string"
+        },
         "arbitrageurConfigs": {
           "type": "array",
           "items": {
@@ -950,7 +1053,11 @@
           "type": "number",
           "format": "float"
         },
-        "SAKEPERP_LONG_CLOSE_TRIGGER": {
+        "SAKEPERP_LONG_CLOSE_LOSS_TRIGGER": {
+          "type": "number",
+          "format": "float"
+        },
+        "SAKEPERP_LONG_CLOSE_PROFIT_TRIGGER": {
           "type": "number",
           "format": "float"
         },
@@ -966,7 +1073,11 @@
           "type": "number",
           "format": "float"
         },
-        "SAKEPERP_SHORT_CLOSE_TRIGGER": {
+        "SAKEPERP_SHORT_CLOSE_LOSS_TRIGGER": {
+          "type": "number",
+          "format": "float"
+        },
+        "SAKEPERP_SHORT_CLOSE_PROFIT_TRIGGER": {
           "type": "number",
           "format": "float"
         },
@@ -1021,6 +1132,137 @@
         "CEX_LIQUIDATION_RATIO": {
           "type": "number",
           "format": "float"
+        },
+        "INTERVAL_MIN": {
+          "type": "number",
+          "format": "float"
+        },
+        "INTERVAL_MAX": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoarbitrageurV2Config": {
+      "type": "object",
+      "properties": {
+        "cexPlatform": {
+          "type": "string"
+        },
+        "dexPlatform": {
+          "type": "string"
+        },
+        "robotName": {
+          "type": "string"
+        },
+        "preflightCheckV2": {
+          "$ref": "#/definitions/protoarbitrageurV2PreflightCheck"
+        },
+        "arbitrageurV2ExchangeConfigs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoarbitrageurV2ExchangeConfig"
+          }
+        }
+      }
+    },
+    "protoarbitrageurV2Configs": {
+      "type": "object",
+      "properties": {
+        "WEB3_ENDPOINT": {
+          "type": "string"
+        },
+        "WEB3_ENDPOINT_BACKUP": {
+          "type": "string"
+        },
+        "imageName": {
+          "type": "string"
+        },
+        "arbitrageurV2Configs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoarbitrageurV2Config"
+          }
+        }
+      }
+    },
+    "protoarbitrageurV2ExchangeConfig": {
+      "type": "object",
+      "properties": {
+        "Pair": {
+          "type": "string"
+        },
+        "ENABLED": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "ASSET_CAP": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "SAKEPERP_LEVERAGE": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "SAKEPERP_MIN_TRADE_NOTIONAL": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "SAKEPERP_SHORT_ENTRY_TRIGGER": {
+          "type": "number",
+          "format": "float"
+        },
+        "SAKEPERP_LONG_ENTRY_TRIGGER": {
+          "type": "number",
+          "format": "float"
+        },
+        "ADJUST_MARGIN_RATIO_THRESHOLD": {
+          "type": "number",
+          "format": "float"
+        },
+        "MAX_SLIPPAGE_RATIO": {
+          "type": "number",
+          "format": "float"
+        },
+        "CEX_MARKET_ID": {
+          "type": "string"
+        },
+        "CEX_MIN_TRADE_SIZE": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoarbitrageurV2PreflightCheck": {
+      "type": "object",
+      "properties": {
+        "BLOCK_TIMESTAMP_FRESHNESS_THRESHOLD": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "GAS_BALANCE_THRESHOLD": {
+          "type": "number",
+          "format": "float"
+        },
+        "USD_BALANCE_THRESHOLD": {
+          "type": "number",
+          "format": "float"
+        },
+        "CEX_USD_BALANCE_THRESHOLD": {
+          "type": "number",
+          "format": "float"
+        },
+        "CEX_MARGIN_RATIO_THRESHOLD": {
+          "type": "number",
+          "format": "float"
+        },
+        "INTERVAL_MIN": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "INTERVAL_MAX": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -1251,6 +1493,9 @@
           "type": "string"
         },
         "robotCreateTime": {
+          "type": "string"
+        },
+        "robotUpdateTime": {
           "type": "string"
         },
         "robotCreateType": {

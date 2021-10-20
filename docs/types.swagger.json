@@ -199,6 +199,122 @@
         ]
       }
     },
+    "/debug/debug": {
+      "get": {
+        "operationId": "DebugAPI_Debug",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoString"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "DebugAPI"
+        ]
+      }
+    },
+    "/debug/endpoint": {
+      "get": {
+        "operationId": "DebugAPI_EndPoint",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoString"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "DebugAPI"
+        ]
+      }
+    },
+    "/debug/robot": {
+      "post": {
+        "operationId": "DebugAPI_robot",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoDebugRobotRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DebugAPI"
+        ]
+      }
+    },
+    "/debug/robotState": {
+      "post": {
+        "operationId": "DebugAPI_robotState",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoDebugRobotStateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DebugAPI"
+        ]
+      }
+    },
     "/mmHedge/getConfigByName": {
       "get": {
         "operationId": "MMHedgeAPI_GetConfigByName",
@@ -357,14 +473,14 @@
         ]
       }
     },
-    "/robot/debug": {
+    "/robot/allDexAddress": {
       "get": {
-        "operationId": "RobotAPI_Debug",
+        "operationId": "RobotAPI_AllDexAddress",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/protoString"
+              "$ref": "#/definitions/protoAllDexAddressesResponse"
             }
           },
           "default": {
@@ -374,14 +490,28 @@
             }
           }
         },
-        "parameters": [
-          {
-            "name": "value",
-            "in": "query",
-            "required": false,
-            "type": "string"
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
+    "/robot/cexFundStatistics": {
+      "get": {
+        "operationId": "RobotAPI_CexFundStatistics",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protocexFundResponses"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
           }
-        ],
+        },
         "tags": [
           "RobotAPI"
         ]
@@ -875,6 +1005,38 @@
         ]
       }
     },
+    "/robot/updateDexAddress": {
+      "post": {
+        "operationId": "RobotAPI_UpdateDexAddress",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoBoolean"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoupdateDexAddressRequest"
+            }
+          }
+        ],
+        "tags": [
+          "RobotAPI"
+        ]
+      }
+    },
     "/robot/updateDexBalance": {
       "post": {
         "operationId": "RobotAPI_UpdateDexBalance",
@@ -941,12 +1103,66 @@
     }
   },
   "definitions": {
+    "protoAllDexAddressResponse": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "robotName": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "index": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "protoAllDexAddressesResponse": {
+      "type": "object",
+      "properties": {
+        "addresses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoAllDexAddressResponse"
+          }
+        }
+      }
+    },
     "protoBoolean": {
       "type": "object",
       "properties": {
         "value": {
           "type": "boolean",
           "format": "boolean"
+        }
+      }
+    },
+    "protoDebugRobotRequest": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "cexName": {
+          "type": "string"
+        }
+      }
+    },
+    "protoDebugRobotStateRequest": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
         }
       }
     },
@@ -980,6 +1196,9 @@
           "type": "string"
         },
         "endpointBackUp": {
+          "type": "string"
+        },
+        "imageName": {
           "type": "string"
         }
       }
@@ -1088,6 +1307,14 @@
         "SAKEPERP_SHORT_CEX_OPEN_PRICE_SPREAD": {
           "type": "number",
           "format": "float"
+        },
+        "SAKEPERP_OPEN_AMM_TRIGGER": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "SAKEPERP_CLOSE_AMM_TRIGGER": {
+          "type": "integer",
+          "format": "int32"
         },
         "ADJUST_MARGIN_RATIO_THRESHOLD": {
           "type": "number",
@@ -1275,6 +1502,35 @@
         "value": {
           "type": "string",
           "format": "byte"
+        }
+      }
+    },
+    "protocexFundResponse": {
+      "type": "object",
+      "properties": {
+        "platform": {
+          "type": "string"
+        },
+        "robotName": {
+          "type": "string"
+        },
+        "account": {
+          "type": "string"
+        },
+        "balance": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protocexFundResponses": {
+      "type": "object",
+      "properties": {
+        "cexFunds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protocexFundResponse"
+          }
         }
       }
     },
@@ -1711,6 +1967,20 @@
           "type": "string"
         },
         "balance": {
+          "type": "string"
+        }
+      }
+    },
+    "protoupdateDexAddressRequest": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "robotName": {
+          "type": "string"
+        },
+        "platform": {
           "type": "string"
         }
       }

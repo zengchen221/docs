@@ -199,6 +199,43 @@
         ]
       }
     },
+    "/debug/cexSubAccountTransfer": {
+      "get": {
+        "operationId": "DebugAPI_CexSubAccountTransfer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoString"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "subName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "float"
+          }
+        ],
+        "tags": [
+          "DebugAPI"
+        ]
+      }
+    },
     "/debug/debug": {
       "get": {
         "operationId": "DebugAPI_Debug",
@@ -246,6 +283,36 @@
             }
           }
         },
+        "tags": [
+          "DebugAPI"
+        ]
+      }
+    },
+    "/debug/newCexSubAccount": {
+      "get": {
+        "operationId": "DebugAPI_NewCexSubAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoString"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "subName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
         "tags": [
           "DebugAPI"
         ]
@@ -406,6 +473,28 @@
         ],
         "tags": [
           "MMHedgeAPI"
+        ]
+      }
+    },
+    "/robot/accountInfosOfDydx": {
+      "get": {
+        "operationId": "RobotAPI_AccountInfosOfDydx",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protoAccountInfosOfDydxs"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "RobotAPI"
         ]
       }
     },
@@ -1103,6 +1192,56 @@
     }
   },
   "definitions": {
+    "protoAccountInfosOfDydx": {
+      "type": "object",
+      "properties": {
+        "robotName": {
+          "type": "string"
+        },
+        "robotType": {
+          "type": "string"
+        },
+        "platform1": {
+          "type": "string"
+        },
+        "account1": {
+          "type": "string"
+        },
+        "startBalance1": {
+          "type": "number",
+          "format": "float"
+        },
+        "totalBalance1": {
+          "type": "number",
+          "format": "float"
+        },
+        "platform2": {
+          "type": "string"
+        },
+        "account2": {
+          "type": "string"
+        },
+        "startBalance2": {
+          "type": "number",
+          "format": "float"
+        },
+        "totalBalance2": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "protoAccountInfosOfDydxs": {
+      "type": "object",
+      "properties": {
+        "accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protoAccountInfosOfDydx"
+          }
+        }
+      }
+    },
     "protoAllDexAddressResponse": {
       "type": "object",
       "properties": {

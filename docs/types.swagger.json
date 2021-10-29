@@ -1228,6 +1228,10 @@
         "totalBalance2": {
           "type": "number",
           "format": "float"
+        },
+        "reward": {
+          "type": "number",
+          "format": "float"
         }
       }
     },
